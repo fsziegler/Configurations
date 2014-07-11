@@ -30,7 +30,6 @@ xmodmap -e 'keycode 133 = F13'
 #   state 0x0, keycode 133 (keysym 0xffca, F13), same_screen YES,
 #   state 0x40, keycode 133 (keysym 0xffca, F13), same_screen YES,
 #
-12345678901234567890123456789012345678901234567890123456789012345678901234567890
 # 7. KMenu –> Search: Global Keyboard Shortcuts –> KDE Component: 
 #    Plasma Desktop Shell –> Activate Application Launcher Widget –> 
 #    Custom (Click None)
