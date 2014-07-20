@@ -1,7 +1,8 @@
 #!/bin/bash
-# Always start with "#!/bin/bash"
-# Comments start with "#"
 # Adapted from http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+# 1. Always startBash shell scripts  with "#!/bin/bash" on the first line
+# 2. Comments start with "#"
+# 3. run `hod +x bash_script_template.sh` to k thi rit
 
 # Variables
 STR="Hello World!"
