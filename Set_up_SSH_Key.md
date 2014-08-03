@@ -2,7 +2,7 @@
 
 # Generating SSH Keys
  * `ls -al ~/.ssh`
- *  ssh-keygen -t rsa -C "your_email@example.com"
+ * `ssh-keygen -t rsa -C "your_email@example.com"`
  * `eval "$(ssh-agent -s)"`
  * `ssh-add ~/.ssh/id_rsa`
  * `sudo apt-get install xclip`
