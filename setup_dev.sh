@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Written 2011-09-20 by Fred Ziegler
+# Written 2014-08-02 by Fred Ziegler
 # Designed for Ubuntu Linux systems - should work on any Debian system.
 #
 
