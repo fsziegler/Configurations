@@ -149,3 +149,7 @@ function lazygit() {
     git commit -a -m "$1"
     git push
 }
+
+
+#Added 2014-08-02 by Fred Ziegler, http://unix.stackexchange.com/questions/3330/how-to-get-a-persistent-history-file-even-after-a-non-clean-shutdown
+PROMPT_COMMAND='history -a'
