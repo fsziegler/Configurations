@@ -24,8 +24,9 @@
 #
 
 chmod +x *.sh
+export PROMPT_COMMAND='history -a'
 mv ~/.bashrc ~/.bashrc.orig
 cp .bashrc ~/.bashrc
 sudo apt-get -y install chromium-browser git gitg gedit aptitude \
    gnome-disk-utility eclipse-cdt g++ libpng++ libcurl3-dev xclip vim \
-   libboost1.48-all-dev qtcreator
+   libboost1.48-all-dev qtcreator gnome-tweak-tool
