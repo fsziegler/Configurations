@@ -14,9 +14,4 @@ This repository contains configurations and configuration utilities for [K]Ubunt
   * In the "Command" field, replace `gedit %U` with `gedit $1 < /dev/null`
   * Click "Save"
   * Close the KDE Menu Editor
-<<<<<<< HEAD
- * To resize the borders in Ubuntu Unity, edit "/usr/share/themes/Ambiance/metacity-1/metacity-theme-1.xml and in the section starting <frame_geometry name="frame_geometry_normal" change left_width, right_width and bottom_height from 1 to 3."
-=======
  * To resize the borders in Ubuntu Unity, edit `/usr/share/themes/Ambiance/metacity-1/metacity-theme-1.xml` and in the section starting `<frame_geometry name="frame_geometry_normal"` change left_width, right_width and bottom_height from 1 to 3.
->>>>>>> d7197cdd789bd275944badd48619e33885276b9e
-(from http://askubuntu.com/questions/69379/how-do-i-make-the-window-border-bigger)
