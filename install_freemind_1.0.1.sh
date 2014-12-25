@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script: install_freemind_1.0.1.sh
-echo === Install & remove freemind - this leaves the .desktop file
+echo === Install & remove freemind 0.9.0 - this leaves the .desktop file
 sudo apt-get install -y openjdk-7-jre
 sudo apt-get install -y freemind
 sudo cp /usr/share/applications/freemind.desktop /usr/share/applications/freemind.desktop.bak
@@ -22,3 +22,6 @@ sudo apt-get install -y desktop-file-utils
 cd /usr/share/applications && sudo mv freemind.desktop.bak freemind.desktop && sudo desktop-file-install freemind.desktop
 echo
 echo "=== Please note that it often takes a few seconds before FreeMind shows up under Applications->Office"
+echo "TO DO: extract FreeMindWindowIcon.png from freemind/lib/freemind.jar (under images) and copy to /usr/share/icons/"
+jar xf ./freemind/lib/freemind.jar images/FreeMindWindowIcon.png
+sudo mv ./FreeMindWindowIcon.png /usr/share/pixmaps/
