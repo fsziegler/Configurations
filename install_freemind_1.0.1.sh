@@ -17,11 +17,12 @@ echo === Copy freemind to /usr/share/freemind/
 sudo cp -r ./freemind/* /usr/share/freemind/
 echo
 echo === Create link to /usr/share/freemind/ in /usr/bin
+pushd .
 cd /usr/bin && sudo ln -s /usr/share/freemind/freemind.sh /usr/bin/freemind
 sudo apt-get install -y desktop-file-utils
 cd /usr/share/applications && sudo mv freemind.desktop.bak freemind.desktop && sudo desktop-file-install freemind.desktop
-echo
+popd
+sudo jar xf ./freemind/lib/freemind.jar images/FreeMindWindowIcon.png
+sudo mv ./images/FreeMindWindowIcon.png /usr/share/pixmaps/echo
+sudo rm -rf ./images
 echo "=== Please note that it often takes a few seconds before FreeMind shows up under Applications->Office"
-echo "TO DO: extract FreeMindWindowIcon.png from freemind/lib/freemind.jar (under images) and copy to /usr/share/icons/"
-jar xf ./freemind/lib/freemind.jar images/FreeMindWindowIcon.png
-sudo mv ./FreeMindWindowIcon.png /usr/share/pixmaps/
