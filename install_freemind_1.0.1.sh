@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script: install_freemind_1.0.1.sh
 echo === Install & remove freemind 0.9.0 - this leaves the .desktop file
+sudo apt-get update
 sudo apt-get install -y openjdk-7-jre
 sudo apt-get install -y freemind
 sudo cp /usr/share/applications/freemind.desktop /usr/share/applications/freemind.desktop.bak
