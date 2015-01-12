@@ -15,3 +15,4 @@ This repository contains configurations and configuration utilities for [K]Ubunt
   * Click "Save"
   * Close the KDE Menu Editor
  * To resize the borders in Ubuntu Unity, edit `/usr/share/themes/Ambiance/metacity-1/metacity-theme-1.xml` and in the section starting `<frame_geometry name="frame_geometry_normal"` change left_width, right_width and bottom_height from 1 to 3.
+ * To set a short password in Ubuntu, edit /etc/pam.d/common-password and replace the password line (line 25 for Ubuntu 12.04.4) with `password    [success=1 default=ignore]  pam_unix.so minlen=2 sha512` (from "http://askubuntu.com/questions/180402/how-to-set-a-short-password-on-ubuntu")
