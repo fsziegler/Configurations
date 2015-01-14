@@ -1,7 +1,7 @@
 Installing and Running OpenMPI
 ==============================
 
- * Download OpenMPI from http://www.open-mpi.org/software/ompi/v1.8/. Note that Boost 1.48 uses OpenMPI 1.3, so this version should be installed if using this version of Boost.
+ * Download OpenMPI from http://www.open-mpi.org/software/ompi/v1.8/. Note that Boost 1.48 uses OpenMPI 1.3 (http://www.open-mpi.org/software/ompi/v1.3/downloads/openmpi-1.3.4.tar.bz2), so this version should be installed if using this version of Boost.
  * Extract the archive
  * Switch to the new directory
  * Run `./configure`
