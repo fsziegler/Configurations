@@ -23,4 +23,5 @@ doc/**/*.txt
 *.o
 # Qt files
 vendor/thorlabs/ueyedemo/Makefile
-
+advanced_find-3.5.4/*
+freemind/*
