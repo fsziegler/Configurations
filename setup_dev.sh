@@ -23,6 +23,7 @@
 # Designed for Ubuntu Linux systems - should work on any Debian system.
 #
 
+sudo apt-get install ubuntu-restricted-extras
 chmod +x *.sh
 export PROMPT_COMMAND='history -a'
 mv ~/.bashrc ~/.bashrc.orig
