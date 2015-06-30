@@ -25,7 +25,19 @@
 # This script installs advanced-find, the best regex plugin for gedit I have 
 # found to date.
 
-wget http://advanced-find.googlecode.com/files/advanced_find-3.5.4.tar.gz
-tar -xvzf advanced_find-3.5.4.tar.gz
-cd advanced_find-3.5.4/
-sudo cp -R ./advancedfind* /usr/lib/gedit/plugins/
+wget https://advanced-find.googlecode.com/files/advanced_find-3.6.0.tar.gz
+tar -xvzf advanced_find-3.6.0.tar.gz
+rm -f advanced_find-3.6.0.tar.gz
+cd advanced_find-3.6.0/
+mkdir ~/.local/share/gedit
+mkdir ~/.local/share/gedit/plugins
+cp -R ./advancedfind* ~/.local/share/gedit/plugins
+cd ..
+sudo rm -rf advanced_find-3.6.0
+sudo killall gedit
+gedit &
+echo ========================= USER ACTION REQUIRED =========================
+echo Switch to gedit
+echo Open Edit:Preferences:Plugins
+echo Check Advanced Find/Replace
+
