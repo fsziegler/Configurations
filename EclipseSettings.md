@@ -7,7 +7,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
   - Insert spaces for tabs -> checked
   - Show print margin -> checked
 - General:Editors:Text Editors:Spelling:User defined dictionary -> ./workspace_eclipse/dictionary.txt
-- General:Workspace:Save automatcally before build -> checked
+- General:Workspace:Save automatically before build -> checked
 - C/C++:Build:Console
   - Bring console to top when building (if present) -> checked
   - Wrap lines on the console -> checked
@@ -20,7 +20,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
         - Tab Policy -> Spaces Only
         - Indentation size -> 3
         - Tab size -> 3
-    - New Lines Tab:Insert new line:before colon in constructor initialzer list -> checked
+    - New Lines Tab:Insert new line:before colon in constructor initializer list -> checked
     - Line Wrapping Tab:
       - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
       - Function declarations:Constructor initializer list:
@@ -33,4 +33,4 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
       - Capitalization -> CamelCase
       - Prefix -> k
     - Class Field:Prefix -> m_
-  - Team:Git:Default repository folder: *path to data_acq*
+  - Team:Git:Default repository folder: *path to repo*
