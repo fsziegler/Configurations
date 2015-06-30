@@ -17,6 +17,7 @@ sudo mkdir /usr/share/freemind
 echo
 echo === Copy freemind to /usr/share/freemind/
 sudo cp -r ./freemind/* /usr/share/freemind/
+sudo rm -rf ./freemind
 echo
 echo === Create link to /usr/share/freemind/ in /usr/bin
 pushd .
