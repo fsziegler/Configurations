@@ -11,6 +11,7 @@ echo
 echo === Download freemind
 wget http://sourceforge.net/projects/freemind/files/freemind/1.0.1/freemind-bin-max-1.0.1.zip
 unzip freemind-bin-max-1.0.1.zip -d freemind
+rm -f freemind-bin-max-1.0.1.zip
 chmod +x freemind/freemind.sh
 sudo mkdir /usr/share/freemind
 echo
