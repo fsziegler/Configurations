@@ -1,0 +1,35 @@
+#Eclipse Settings
+
+The following is a list of settings I like to change in Eclipse. Unless otherwise noted, settings are modified from Windows:Preferences
+- General:Editors:Size of recently opened files -> 15
+- General:Editors:Text Editors
+  - Displayed tab width -> 3
+  - Insert spaces for tabs -> checked
+  - Show print margin -> checked
+- General:Editors:Text Editors:Spelling:User defined dictionary -> ./workspace_eclipse/dictionary.txt
+- C/C++:Build:Console
+  - Bring console to top when building (if present) -> checked
+  - Wrap lines on the console -> checked
+  - Display tab width -> 3
+- C/C++:Build:Code Style:
+  - Formatter:
+    - Set to BSD/Allman, and edit:
+      - Rename to "BSD/Allman [Fred]"
+      - Indentation Tab:
+        - Tab Policy -> Spaces Only
+        - Indentation size -> 3
+        - Tab size -> 3
+    - New Lines Tab:Insert new line:before colon in constructor initialzer list -> checked
+    - Line Wrapping Tab:
+      - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
+      - Function declarations:Constructor initializer list:
+        - Line wrapping policy -> Wrap all elements, every element on its own line
+        - Force split, even if line is shorter than maximum width -> checked
+        - Indentation policy -> Indent on column
+      - Expressions:Member access:Line wrapping policy -> Wrap only when necessary
+  - Name Style:Code:
+    - Constant:
+      - Capitalization -> CamelCase
+      - Prefix -> k
+    - Class Field:Prefix -> m_
+  - Team:Git:Default repository folder: *path to data_acq*
