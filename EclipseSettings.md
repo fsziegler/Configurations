@@ -34,3 +34,14 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
       - Prefix -> k
     - Class Field:Prefix -> m_
   - Team:Git:Default repository folder: *path to repo*
+
+If running Kubuntu, the error tooltips in the editor may appear black on black. To fix this,
+- Run System Settings
+- Click on Application Appearance in Common Appearance and Behaviour
+- Click on Colours icon and then on Colours tab
+- Find Tooltip Background and choose a bright color, for instance pale yellow or white
+- Find Tooltip Text below and choose a darker color, like blue or black
+- Click Apply
+- Restart Eclipse
+
+(Fix copied from http://askubuntu.com/questions/45001/how-to-fix-black-tooltips-in-eclipse)
