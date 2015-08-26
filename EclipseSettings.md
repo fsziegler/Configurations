@@ -22,11 +22,11 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
         - Tab size -> 3
     - New Lines Tab:Insert new line:before colon in constructor initializer list -> checked
     - Line Wrapping Tab:
-      - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
       - Function declarations:Constructor initializer list:
         - Line wrapping policy -> Wrap all elements, every element on its own line
         - Force split, even if line is shorter than maximum width -> checked
         - Indentation policy -> Indent on column
+      - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
       - Expressions:Member access:Line wrapping policy -> Wrap only when necessary
   - Name Style:Code:
     - Constant:
