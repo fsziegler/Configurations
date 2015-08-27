@@ -27,6 +27,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
         - Force split, even if line is shorter than maximum width -> checked
         - Indentation policy -> Indent on column
       - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
+      - Expressions:Initializer List:Line wrapping policy -> Wrap all elements, every element on a new line
       - Expressions:Member access:Line wrapping policy -> Wrap only when necessary
   - Name Style:Code:
     - Constant:
