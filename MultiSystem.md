@@ -5,4 +5,4 @@ To install MultiSystem [adapted from http://ubuntuforums.org/showthread.php?t=21
  2. `sudo apt-get update`
  3. `sudo apt-get install multisystem`
  4. Run Multisystem, and format a USB flash drive.
- 5. You will now be presented with a UI that enables you to add ISO files to your Multisystem USB drive.
+ 5. Now, add the ISO files you wish to be bootable. Note that the "ISO Select" UI in the current version of Multisystem appears not to work; to add an ISO to the USB drive, use a file manager (e.g., dolphin or nautilus) to find the file, then drag and drop it into the bottom window in Multisystem.
