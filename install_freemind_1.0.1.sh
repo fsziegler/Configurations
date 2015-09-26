@@ -24,8 +24,8 @@ pushd .
 cd /usr/bin && sudo ln -s /usr/share/freemind/freemind.sh /usr/bin/freemind
 sudo apt-get install -y desktop-file-utils
 cd /usr/share/applications && sudo mv freemind.desktop.bak freemind.desktop && sudo desktop-file-install freemind.desktop
-popd
-sudo jar xf ./freemind/lib/freemind.jar images/FreeMindWindowIcon.png
+sudo jar xf /usr/share/freemind/lib/freemind.jar images/FreeMindWindowIcon.png
 sudo mv ./images/FreeMindWindowIcon.png /usr/share/pixmaps
 sudo rm -rf ./images
+popd
 echo "=== Please note that it often takes a few seconds before FreeMind shows up under Applications->Office"
