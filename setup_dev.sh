@@ -31,4 +31,4 @@ sudo apt-get -y install chromium-browser git gitg gedit aptitude \
    gnome-disk-utility eclipse-cdt g++ libpng++ libcurl3-dev xclip vim \
    libboost-all-dev qtcreator gnome-tweak-tool libexpat-dev libapr1 \
    libapr1-dev libaprutil1-dev backintime-gnome libpng++-dev aptitude \
-   gtkterm wmctrl
+   gtkterm wmctrl libgsl0-dev
