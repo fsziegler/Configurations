@@ -34,7 +34,8 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
       - Capitalization -> CamelCase
       - Prefix -> k
     - Class Field:Prefix -> m_
-  - Team:Git:Default repository folder: *path to repo*
+- C/C++:Editor:Folding: Enable folding of control flow statements (if/else, do/while, for, switch) -> checked
+- Team:Git:Default repository folder: *path to repo*
 
 If running Kubuntu, the error tooltips in the editor may appear black on black. To fix this,
 - Run System Settings
