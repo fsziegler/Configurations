@@ -48,6 +48,7 @@ If running Kubuntu, the error tooltips in the editor may appear black on black. 
 (Fix copied from http://askubuntu.com/questions/45001/how-to-fix-black-tooltips-in-eclipse)
 
 To index C++11 properly in EclipseCDT Mars:
+
 "Project Properties->C/C++ General->Preprocessor Include Paths, Macros->[Providers] tab->your Built-in Compiler Settings provider (toolchain dependent).
 Click on "Workspace Settings" link which gets you to "Settings" property page, select [Discovery] tab and your provider again. There is "Command to get compiler specs", add "-std=c++0x" in there."
 
