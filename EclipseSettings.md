@@ -8,7 +8,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
   - Show print margin -> checked
 - General:Editors:Text Editors:Spelling:User defined dictionary -> ./workspace_eclipse/dictionary.txt
 - General:Workspace:Save automatically before build -> checked
-- C/C++:Build:Console
+- C/C++:Console
   - Bring console to top when building (if present) -> checked
   - Wrap lines on the console -> checked
   - Display tab width -> 3
