@@ -14,7 +14,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
   - Display tab width -> 3
 - C/C++:Code Style: 
   - Code Templates:Comments:Files:Pattern
-    - [Add boilerplate copyright here]{https://github.com/fsziegler/Configurations/blob/master/EclipseCopyright.txt}
+    - [Add boilerplate copyright here](https://github.com/fsziegler/Configurations/blob/master/EclipseCopyright.txt)
   - Formatter:
     - Set to BSD/Allman, and edit:
       - Rename to "BSD/Allman [Fred]"
