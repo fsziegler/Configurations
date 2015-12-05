@@ -12,7 +12,9 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
   - Bring console to top when building (if present) -> checked
   - Wrap lines on the console -> checked
   - Display tab width -> 3
-- C/C++:Code Style:
+- C/C++:Code Style: 
+  - Code Templates:Comments:Files:Pattern
+    - Add boilerplate copyright here
   - Formatter:
     - Set to BSD/Allman, and edit:
       - Rename to "BSD/Allman [Fred]"
