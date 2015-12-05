@@ -7,6 +7,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
   - Insert spaces for tabs -> checked
   - Show print margin -> checked
 - General:Editors:Text Editors:Spelling:User defined dictionary -> ./workspace_eclipse/dictionary.txt
+- General:Startup and Shutdown:"RSE UI" -> uncheck
 - General:Workspace:Save automatically before build -> checked
 - C/C++:Build:Console
   - Bring console to top when building (if present) -> checked
