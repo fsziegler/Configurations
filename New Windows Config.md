@@ -5,4 +5,4 @@ For a new Windows installation, here are some useful apps:
 - Process Explorer (and others) from [SysInternals Suite](https://technet.microsoft.com/en-us/sysinternals/bb842062)
 - [Visual Studio Express](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx)
 - [LibreOffice](https://www.libreoffice.org/download/libreoffice-fresh/)
-- [Gnumeric](http://www.gnumeric.org/)
+- [Various Git Tools](https://git-scm.com/download/gui/linux)
