@@ -26,7 +26,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
     - New Lines Tab:Insert new line:before colon in constructor initializer list -> checked
     - Line Wrapping Tab:
       - Function declarations:Constructor initializer list:
-        - Line wrapping policy -> Wrap all elements, every element on its own line
+        - Line wrapping policy -> Wrap all elements, except first element if not necessary
         - Force split, even if line is shorter than maximum width -> checked
         - Indentation policy -> Indent on column
       - 'enum' declaration:Enumerator list:Line wrapping policy:Force split, even if line is shorter than maximum width -> checked
