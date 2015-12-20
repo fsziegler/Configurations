@@ -40,6 +40,7 @@ The following is a list of settings I like to change in Eclipse. Unless otherwis
 - C/C++:Editor:Folding: Enable folding of control flow statements (if/else, do/while, for, switch) -> checked
 - Team:Git:Default repository folder: *path to repo*
 
+##Tooltips
 If running Kubuntu, the error tooltips in the editor may appear black on black. To fix this,
 - Run System Settings
 - Click on Application Appearance in Common Appearance and Behaviour
@@ -51,9 +52,17 @@ If running Kubuntu, the error tooltips in the editor may appear black on black. 
 
 (Fix copied from http://askubuntu.com/questions/45001/how-to-fix-black-tooltips-in-eclipse)
 
-To index C++11 properly in EclipseCDT Mars:
+##To build with C++11 properly in EclipseCDT Mars
 
-"Project Properties->C/C++ General->Preprocessor Include Paths, Macros->[Providers] tab->your Built-in Compiler Settings provider (toolchain dependent).
-Click on "Workspace Settings" link which gets you to "Settings" property page, select [Discovery] tab and your provider again. There is "Command to get compiler specs", add "-std=c++0x" in there."
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Compiler:Miscellaneous:Other flags, add `-std=c++11`
+
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C Compiler:Miscellaneous:Other flags, add `-std=c++11`
+
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Linker:Miscellaneous:Linker flags, add `-std=c++11`
+
+##To index C++11 properly in EclipseCDT Mars
+
+"Under Project Properties->C/C++ General->Preprocessor Include Paths, Macros->[Providers] tab->your Built-in Compiler Settings provider (toolchain dependent).
+Click on "Workspace Settings" link which gets you to "Settings" property page, select [Discovery] tab and your provider again. There is "Command to get compiler specs", add `-std=c++11` in there."
 
 (From: http://www.eclipse.org/forums/index.php/mv/msg/373462/909018/#msg_909018)
