@@ -54,15 +54,15 @@ If running Kubuntu, the error tooltips in the editor may appear black on black. 
 
 ##To build with C++11 properly in EclipseCDT Mars
 
-Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Compiler:Miscellaneous:Other flags, add "-std=c++11" 
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Compiler:Miscellaneous:Other flags, add `-std=c++11`
 
-Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C Compiler:Miscellaneous:Other flags, add "-std=c++11" 
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C Compiler:Miscellaneous:Other flags, add `-std=c++11`
 
-Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Linker:Miscellaneous:Linker flags, add "-std=c++11" 
+Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Linker:Miscellaneous:Linker flags, add `-std=c++11`
 
 ##To index C++11 properly in EclipseCDT Mars
 
 Under Project Properties->C/C++ General->Preprocessor Include Paths, Macros->[Providers] tab->your Built-in Compiler Settings provider (toolchain dependent).
-Click on "Workspace Settings" link which gets you to "Settings" property page, select [Discovery] tab and your provider again. There is "Command to get compiler specs", add "-std=c++11" in there."
+Click on "Workspace Settings" link which gets you to "Settings" property page, select [Discovery] tab and your provider again. There is "Command to get compiler specs", add `-std=c++11` in there."
 
 (From: http://www.eclipse.org/forums/index.php/mv/msg/373462/909018/#msg_909018)
