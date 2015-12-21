@@ -23,11 +23,20 @@
 # This downloads and builds Qt Creator and associated apps such that one can 
 # debug with a version of GDB that supports Python.
 
-mkdir ~/apps
-cd ~/apps
+echo === Remove any previous installations
+sudo rm -rf ~/apps/gdb
+sudo rm -rf ~/apps/qt*
+sudo rm -rf /opt/Qt*
+sudo rm /usr/share/applications/qtcreator.desktop*
+sudo apt-get remove qtcreator
+sudo rm /usr/bin/qtcreator
+sudo rm /usr/share/pixmaps/qt*
+sudo rm -rf /usr/local/gdb-python2
+
 # Install Qt Creator 5.4.2
-mkdir qt-5.4.2
-cd qt-5.4.2/
+echo === Install Qt Creator 5.4.2
+mkdir ~/apps ~/apps/qt-5.4.2
+cd ~/apps/qt-5.4.2
 qt_install=qt-opensource-linux-x86-5.4.2.run
 qt_url=http://download.qt.io/official_releases/qt/5.4/5.4.2/
 MACHINE_TYPE=`uname -m`
@@ -42,12 +51,15 @@ echo $qt_url
 wget $qt_url
 sudo chmod +x $qt_install
 sudo ./$qt_install
+sudo rm ./$qt_install
 
 # Install GDB 7.10 with Python support
+echo === Install GDB 7.10 with Python support
 mkdir ~/apps/gdb
 cd ~/apps/gdb
 sudo wget http://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.gz
 sudo tar -xvzf gdb-7.10.tar.gz
+sudo rm gdb-7.10.tar.gz
 cd gdb-7.10
 sudo ./configure --prefix /usr/local/gdb-python2 --with-python
 #sudo apt-get -y install libbfd-dev
@@ -66,6 +78,7 @@ sudo chown -R $user ~/apps/gdb
 
 # Start and then kill Qt Creator in order to populate the debuggers.xml file  
 # with the wrong version of gdb
+echo === Start and then kill Qt Creator in order to populate the debuggers.xml file
 /opt/Qt5.4.2/Tools/QtCreator/bin/qtcreator > /dev/null 2>&1 &
 sleep 5
 killall -9 qtcreator
@@ -74,10 +87,23 @@ sudo chown -R $user ~/.config/QtProject/qtcreator
 
 # Populate the debuggers.xml file with the right version of gdb, which supports 
 # python
+echo === Populate the debuggers.xml file with the right version of gdb
 cd ~/apps/gdb/gdb-7.10/gdb
 gdbPath=${PWD}
 gdbPath2=$(echo $gdbPath | sed 's|/|\\/|g')
 sed -i "s/>\/usr\/bin\/gdb/>$gdbPath2\/gdb/g" ~/.config/QtProject/qtcreator/debuggers.xml
 sed -i "s/>System GDB at \/usr\/bin\/gdb</>GDB 7.10 with Python support</g" ~/.config/QtProject/qtcreator/debuggers.xml
 
-# TODO Install Qt Creator using desktop-file-install
+echo === Install & remove qtcreator - this leaves the .desktop file
+#sudo apt-get update
+sudo apt-get install -y qtcreator
+sudo cp /usr/share/applications/qtcreator.desktop /usr/share/applications/qtcreator.desktop.bak
+sudo apt-get remove -y qtcreator
+
+echo === Create link to /usr/share/qtcreator/ in /usr/bin
+cd /usr/bin && sudo ln -s /opt/Qt5.4.2/Tools/QtCreator/bin/qtcreator /usr/bin/qtcreator
+sudo apt-get install -y desktop-file-utils
+sudo sed -i 's/QtProject-qtcreator/qtcreator_logo_24/g' /usr/share/applications/qtcreator.desktop.bak
+sudo cp /opt/Qt5.4.2/Tools/QtCreator/share/qtcreator/templates/wizards/qtcreatorplugin/qtcreator_logo_24.png /usr/share/pixmaps
+cd /usr/share/applications && sudo mv qtcreator.desktop.bak qtcreator.desktop && sudo desktop-file-install qtcreator.desktop
+
