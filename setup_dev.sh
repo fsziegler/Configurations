@@ -27,8 +27,8 @@ chmod +x *.sh
 export PROMPT_COMMAND='history -a'
 mv ~/.bashrc ~/.bashrc.orig
 cp .bashrc ~/.bashrc
-sudo apt-get -y install chromium-browser git gitg gedit aptitude \
+sudo apt-get -y install gedit chromium-browser git gitg aptitude \
    gnome-disk-utility eclipse-cdt g++ libpng++ libcurl3-dev xclip vim \
-   libboost-all-dev qtcreator gnome-tweak-tool libexpat-dev libapr1 \
+   libboost-all-dev gnome-tweak-tool libexpat-dev libapr1 \
    libapr1-dev libaprutil1-dev backintime-gnome libpng++-dev aptitude \
    gtkterm wmctrl libgsl0-dev uuid
