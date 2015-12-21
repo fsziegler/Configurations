@@ -29,20 +29,44 @@ cd ~/apps
 mkdir qt-5.4.2
 cd qt-5.4.2/
 wget http://download.qt.io/official_releases/qt/5.4/5.4.2/qt-opensource-linux-x86-5.4.2.run
-chmod +x qt-opensource-linux-x86-5.4.2.run 
-./qt-opensource-linux-x86-5.4.2.run 
+chmod +x qt-opensource-linux-x86-5.4.2.run
+sudo ./qt-opensource-linux-x86-5.4.2.run
 
 # Install GDB 7.10 with Python support
-mkdir ../gdb7.10
-cd ../gdb7.10
-wget http://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.gz
-tar -xvzf gdb-7.10.tar.gz
-cd gdb-7.10/
-cd gdb
-./configure --prefix /usr/local/gdb-python2 --with-python
-make
-sudo apt-get install texinfo
+mkdir ~/apps/gdb
+cd ~/apps/gdb
+sudo wget http://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.gz
+sudo tar -xvzf gdb-7.10.tar.gz
+cd gdb-7.10
+sudo ./configure --prefix /usr/local/gdb-python2 --with-python
+sudo apt-get -y install libbfd-dev
+sudo make
+sudo apt-get -y install texinfo
 sudo make install
-gdb --version
-sed -i -r 's/>\/usr\/bin\/gdb/>\/home\/fred\/apps\/gdb\/gdb-7.10\/gdb/' ~/dev/qt-creator/tests/system/settings/unix/QtProject/qtcreator/debuggers.xml
-sed -i -r 's/System GDB at \/usr\/bin\/gdb/System GDB 7.10 with Python support/' ~/dev/qt-creator/tests/system/settings/unix/QtProject/qtcreator/debuggers.xml
+gdb/gdb --version
+
+# Determine the local user name
+path=${PWD}
+prefix="\/home\/"
+suffix="\/apps\/gdb\/gdb-7.10"
+user=$(echo $path | sed "s/^$prefix//" | sed "s/$suffix$//")
+echo user = $user
+sudo chown -R $user ~/apps/gdb
+
+# Start and then kill Qt Creator in order to populate the debuggers.xml file  
+# with the wrong version of gdb
+/opt/Qt5.4.2/Tools/QtCreator/bin/qtcreator > /dev/null 2>&1 &
+sleep 5
+killall -9 qtcreator
+# Change the Qt Creator config file ownership to the local user
+sudo chown -R $user ~/.config/QtProject/qtcreator
+
+# Populate the debuggers.xml file with the right version of gdb, which supports 
+# python
+cd ~/apps/gdb/gdb-7.10/gdb
+gdbPath=${PWD}
+gdbPath2=$(echo $gdbPath | sed 's|/|\\/|g')
+sed -i "s/>\/usr\/bin\/gdb/>$gdbPath2\/gdb/g" ~/.config/QtProject/qtcreator/debuggers.xml
+sed -i "s/>System GDB at \/usr\/bin\/gdb</>GDB 7.10 with Python support</g" ~/.config/QtProject/qtcreator/debuggers.xml
+
+# TODO Install Qt Creator using desktop-file-install
