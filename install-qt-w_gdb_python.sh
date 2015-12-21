@@ -28,9 +28,20 @@ cd ~/apps
 # Install Qt Creator 5.4.2
 mkdir qt-5.4.2
 cd qt-5.4.2/
-wget http://download.qt.io/official_releases/qt/5.4/5.4.2/qt-opensource-linux-x86-5.4.2.run
-chmod +x qt-opensource-linux-x86-5.4.2.run
-sudo ./qt-opensource-linux-x86-5.4.2.run
+qt_install=qt-opensource-linux-x86-5.4.2.run
+qt_url=http://download.qt.io/official_releases/qt/5.4/5.4.2/
+MACHINE_TYPE=`uname -m`
+if [ ${MACHINE_TYPE} == 'x86_64' ]; then
+   qt_install=qt-opensource-linux-x64-5.4.2.run
+   echo $qt_install
+else
+   echo $qt_install
+fi
+qt_url=$qt_url$qt_install
+echo $qt_url
+wget $qt_url
+sudo chmod +x $qt_install
+sudo ./$qt_install
 
 # Install GDB 7.10 with Python support
 mkdir ~/apps/gdb
@@ -39,7 +50,7 @@ sudo wget http://ftp.gnu.org/gnu/gdb/gdb-7.10.tar.gz
 sudo tar -xvzf gdb-7.10.tar.gz
 cd gdb-7.10
 sudo ./configure --prefix /usr/local/gdb-python2 --with-python
-sudo apt-get -y install libbfd-dev
+#sudo apt-get -y install libbfd-dev
 sudo make
 sudo apt-get -y install texinfo
 sudo make install
