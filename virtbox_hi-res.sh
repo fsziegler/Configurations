@@ -23,8 +23,8 @@
 # Designed for Ubuntu Linux systems - should work on any Debian system.
 # Script to install utilities for high-res screen running Kubuntu under VirtualBox
 
-sudo apt-get install virtualbox-guest-utils
-sudo apt-get install virtualbox-guest-dkms
+sudo apt-get -y install virtualbox-guest-utils
+sudo apt-get -y install virtualbox-guest-dkms
 sudo apt-get update
-sudo apt-get install xorg-video-abi-15 xserver-xorg-core
-sudo apt-get install virtualbox-guest-x11
+sudo apt-get -y install xorg-video-abi-15 xserver-xorg-core
+sudo apt-get -y install virtualbox-guest-x11
