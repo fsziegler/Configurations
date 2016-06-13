@@ -32,3 +32,5 @@ sudo apt-get -y install gedit chromium-browser git gitg aptitude \
    libboost-all-dev gnome-tweak-tool libexpat-dev libapr1 \
    libapr1-dev libaprutil1-dev backintime-gnome libpng++-dev aptitude \
    gtkterm wmctrl libgsl0-dev uuid cmake
+# Add the following for SFML (http://www.sfml-dev.org/), 
+# libsfml-dev
