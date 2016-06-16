@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright (c) 2014 Frederick S. Ziegler
+# Copyright (c) 2016 Frederick S. Ziegler
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Written 2014-08-02 by Fred Ziegler
+# Written 2016-06-16 by Fred Ziegler
+# Adapted from https://help.ubuntu.com/community/ApacheMySQLPHP
 # Designed for Ubuntu Linux systems - should work on any Debian system.
 #
 
-chmod +x *.sh
-export PROMPT_COMMAND='history -a'
-mv ~/.bashrc ~/.bashrc.orig
-cp .bashrc ~/.bashrc
 sudo apt-get update
-sudo apt-get -y install gedit chromium-browser git gitg aptitude \
-   gnome-disk-utility eclipse-cdt g++ libpng++ libcurl3-dev xclip vim \
-   libboost-all-dev gnome-tweak-tool libexpat-dev libapr1 \
-   libapr1-dev libaprutil1-dev backintime-gnome libpng++-dev aptitude \
-   gtkterm wmctrl libgsl0-dev uuid
+sudo apt-get install lamp-server^
+
