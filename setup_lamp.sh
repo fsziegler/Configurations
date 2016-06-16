@@ -26,4 +26,4 @@
 
 sudo apt-get update
 sudo apt-get install lamp-server^ mysql-workbench
-
+sudo apt-get install ec2-api-tools
