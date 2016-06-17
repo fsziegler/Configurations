@@ -16,9 +16,10 @@ A typical LAMP application runs Linux, an Apache web server, a MySQL database, a
  * Install development and LAMP applications:
   * `sudo ./setup_dev.sh`
   * `sudo ./setup_lamp.sh`
-   * You must create a password for the MySQL server when prompted
-   * You must create a password for the phpmyadmin web interface when prompted
-   * You must select "apache" for the phpmyadmin web interface when prompted
+    * You must create a password for the MySQL server when prompted
+    * You must check "apache2" for the phpmyadmin web interface when prompted for "Web server to reconfigure automatically"
+    * Click on "Yes" when prompted "Configure database for phpmyadmin with dbconfig-common?"
+    * You must create a password for the MySQL server when prompted
 
 Once these installations are complete, you should be able to browse to your instance's IP address and see the "Apache2 Ubuntu Default Page". If you append '/phpmyadmin' to the IP address, you should see the "Welcome to phpMyAdmin" page. The user name is root, and the password is whatever you entered when you ran `setup_lamp.sh`.
  
