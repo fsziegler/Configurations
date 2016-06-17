@@ -6,16 +6,12 @@ A typical LAMP application runs Linux, an Apache web server, a MySQL database, a
   * The security settings should include opening ports 80 (HTTP), 22 (SSH), and 443 (HTTPS)
  * SSH into this instance from Linux
   * `ssh -i "[path to *.pem file].pem" ubuntu@[IP address of instance]`
- * Perform system update: `sudo apt-get update`
- * Install git: `sudo apt-get -y install git`
+ * Perform system update & install git: `sudo apt-get update; sudo apt-get -y install git`
  * Create and change to a web directory
-  * `mkdir web`
-  * `cd web`
- * Clone this Git repo: `git clone https://github.com/fsziegler/Configurations.git`
- * Change to the Configurations directory: `cd Configurations`
+  * `mkdir web; cd web`
+ * Clone this Git repo & change to its directory: `git clone https://github.com/fsziegler/Configurations.git; cd Configurations`
  * Install development and LAMP applications:
-  * `sudo ./setup_dev.sh`
-  * `sudo ./setup_lamp.sh`
+  * `sudo ./setup_dev.sh; sudo ./setup_lamp.sh`
     * You must create a password for the MySQL server when prompted
     * You must check "apache2" for the phpmyadmin web interface when prompted for "Web server to reconfigure automatically"
     * Click on "Yes" when prompted "Configure database for phpmyadmin with dbconfig-common?"
