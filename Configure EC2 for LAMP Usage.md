@@ -4,11 +4,12 @@ Configure EC2 for LAMP Usage
 A typical LAMP application runs Linux, an Apache web server, a MySQL database, and PHP for server-side scripting
  * Start an Ubuntu (or other Debian) Linux instance on Amazon AWS (or other cloud provider).
   * The security settings should include opening ports 80 (HTTP), 22 (SSH), and 443 (HTTPS)
-  * Make sure your vpc has "DNS Hostnames" enabled
+  * Make sure your VPC has "DNS Hostnames" enabled
  * SSH into this instance from Linux
   * `ssh -i "[path to *.pem file].pem" ubuntu@[IP address of instance]`
  * **Commands to perform entire installation:** `sudo apt-get update; sudo apt-get -y install git; mkdir web; cd web; git clone https://github.com/fsziegler/Configurations.git; cd Configurations; sudo ./setup_lamp.sh
 `
+ * Detailed break-out of commands:
  * Perform system update & install git: `sudo apt-get update; sudo apt-get -y install git`
  * Create and change to a web directory
   * `mkdir web; cd web`
