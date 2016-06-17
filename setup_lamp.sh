@@ -24,7 +24,12 @@
 # Designed for Ubuntu Linux systems - should work on any Debian system.
 #
 
+chmod +x *.sh
+export PROMPT_COMMAND='history -a'
+mv ~/.bashrc ~/.bashrc.orig
+cp .bashrc ~/.bashrc
 sudo apt-get update
+sudo apt-get -y install gitg aptitude xclip vim uuid 
 sudo apt-get -y install lamp-server^ mysql-workbench
 sudo apt-get -y install ec2-api-tools
 sudo apt-get -y install curl
