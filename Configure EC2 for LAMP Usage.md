@@ -6,6 +6,8 @@ A typical LAMP application runs Linux, an Apache web server, a MySQL database, a
   * The security settings should include opening ports 80 (HTTP), 22 (SSH), and 443 (HTTPS)
  * SSH into this instance from Linux
   * `ssh -i "[path to *.pem file].pem" ubuntu@[IP address of instance]`
+ * **Commands to perform entire installation:** `sudo apt-get update; sudo apt-get -y install git; mkdir web; cd web; git clone https://github.com/fsziegler/Configurations.git; cd Configurations; sudo ./setup_lamp.sh
+`
  * Perform system update & install git: `sudo apt-get update; sudo apt-get -y install git`
  * Create and change to a web directory
   * `mkdir web; cd web`
