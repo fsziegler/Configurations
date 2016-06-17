@@ -27,3 +27,8 @@
 sudo apt-get update
 sudo apt-get install lamp-server^ mysql-workbench
 sudo apt-get install ec2-api-tools
+sudo apt-get install curl
+sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
+sudo apt-get install phpmyadmin
+sudo apt-get install php-mbstring
+sudo apt-get install php-gettext
