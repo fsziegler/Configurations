@@ -9,6 +9,7 @@ A typical LAMP application runs Linux, an Apache web server, a MySQL database, a
   * `ssh -i "[path to *.pem file].pem" ubuntu@[IP address of instance]`
  * **Commands to perform entire installation:** `sudo apt-get update; sudo apt-get -y install git; mkdir web; cd web; git clone https://github.com/fsziegler/Configurations.git; cd Configurations; sudo ./setup_lamp.sh
 `
+
 _Detailed break-out of commands:_
  * Perform system update & install git: `sudo apt-get update; sudo apt-get -y install git`
  * Create and change to a web directory
