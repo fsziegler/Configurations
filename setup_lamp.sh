@@ -39,3 +39,4 @@ sudo apt-get -y install php-mbstring
 sudo apt-get -y install php-gettext
 sudo apt-get -y install mcrypt
 sudo php5enmod mcrypt
+sudo /usr/sbin/apache2ctl restart
