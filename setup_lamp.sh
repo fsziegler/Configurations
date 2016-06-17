@@ -37,3 +37,4 @@ sudo apt-get -y install php libapache2-mod-php php-mcrypt php-mysql
 sudo apt-get -y install phpmyadmin
 sudo apt-get -y install php-mbstring
 sudo apt-get -y install php-gettext
+sudo apt-get -y install mcrypt
