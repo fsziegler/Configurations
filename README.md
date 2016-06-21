@@ -8,7 +8,8 @@ This repository contains configurations and configuration utilities for [K]Ubunt
  * `setup_dev.sh` - a script that installs much of the software required in a new Kubuntu installation for doing software development. To get started:
   * `mkdir dev`
   * `cd dev`
-  * `sudo apt-get install git`
+  * `sudo apt-get update`
+  * `sudo apt-get -y install git`
   * `git clone https://github.com/fsziegler/Configurations.git`
  * gEdit has an annoying behavior: for every file opened, it opens another blank file where you must select "Close without Saving" in order to close it. To disable this:
   * Right-click on the "Kickoff Application Launcher" (icon with a gear and a "K" at the lower left of the screen)
