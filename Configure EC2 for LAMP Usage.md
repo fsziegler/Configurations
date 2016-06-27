@@ -7,8 +7,7 @@ A typical LAMP application runs Linux, an Apache web server, a MySQL database, a
   * Make sure your VPC has "DNS Hostnames" enabled
  * SSH into this instance from Linux
   * `ssh -i "[path to *.pem file].pem" ubuntu@[IP address of instance]`
- * **Commands to perform entire installation:** `sudo apt-get update; sudo apt-get -y install git; mkdir web; cd web; git clone https://github.com/fsziegler/Configurations.git; cd Configurations; sudo ./setup_lamp.sh
-`
+ * **Commands to perform entire installation:** `sudo apt-get update; sudo apt-get -y install git; mkdir web; cd web; git clone https://github.com/fsziegler/Configurations.git; cd Configurations; sudo ./setup_lamp.sh`
 
 _Detailed break-out of commands:_
  * Perform system update & install git: `sudo apt-get update; sudo apt-get -y install git`
@@ -64,11 +63,11 @@ To have a PHP script run an executable that communicates with another executable
 ```
 <?php // run_client.php
    echo "First" . "<br>";
-   $command = "./boost-ipc001 -c > result0.txt";
+   $command = "./boost-ipc001 -c";
    $result = shell_exec($command);
    echo "result = [" . $result . "]<br>";
    echo "Done" . "<br>";
 ?>
 ```
-   * The client mode program spawned by the PHP script by the apache server will communicate with the server moce program run from the command line.
+   * The client mode program spawned by the PHP script by the apache server will communicate with the server mode program run from the command line.
    * The client and server programs will NOT communicate if they are run by different user accounts.
