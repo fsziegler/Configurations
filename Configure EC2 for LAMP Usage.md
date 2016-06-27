@@ -45,7 +45,7 @@ To have a PHP script run an executable that communicates with another executable
 <?php // send_report.php
    if (isset($_POST['url']))
    {
-      $command = "echo 1234 | sudo -S ./boost-ipc001 -c > result.txt";
+      $command = "echo foo123 | sudo -S ./boost-ipc001 -c > result.txt";
       shell_exec($command);
    }
 ?>
