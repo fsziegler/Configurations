@@ -25,6 +25,8 @@ _Detailed break-out of commands:_
 
 Once these installations are complete, you should be able to browse to your instance's IP address and see the "Apache2 Ubuntu Default Page". If you append '/phpmyadmin' to the IP address, you should see the "Welcome to phpMyAdmin" page. The user name is root, and the password is whatever you entered when you ran `setup_lamp.sh`.
  
+**How to Avoid Permissions Problems**
+
 From: http://blog.netgusto.com/solving-web-file-permissions-problem-once-and-for-all/
 
 Assume that the developer user is `fred`, the web server user is `www-data` and the application is stored at `/var/www/html/app1` (created by root).
@@ -35,6 +37,8 @@ Assume that the developer user is `fred`, the web server user is `www-data` and 
  * `sudo nano /etc/fstab`
    * Append `bindfs#/var/www/html/app1 /home/fred/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
  * `mount /home/fred/websites/app1` (system will do this at boot time)
+
+**How to Make a Web Page Talk to Another Process on the Web Server**
 
 To have a PHP script run an executable that communicates with another executable on the server, such as the interprocess communication client (kicked off by the script) talking to the ipc server in https://github.com/fsziegler/cs-ipc:
  * Assume that the client and server are run using `boost-ipc001 -c` and `boost-ipc001 -s &`, respectively
