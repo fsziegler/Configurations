@@ -39,7 +39,7 @@ Assume that the developer user is `fred`, the web server user is `www-data` and 
 
 **How to Make a Web Page Talk to Another Process on the Web Server**
 
-To have a PHP script run an executable that communicates with another executable on the server, such as an interprocess communication client (kicked off by the script) talking to an ipc server (example code from the bottom of: http://www.boost.org/doc/libs/1_61_0/doc/html/interprocess/synchronization_mechanisms.html#interprocess.synchronization_mechanisms.message_queue):
+To have a PHP script run an executable that communicates with another executable on the server, such as an interprocess communication client (kicked off by the script) talking to an ipc server (code from https://github.com/fsziegler/boost-ipc001):
  * Assume that the client and server are run using `boost-ipc001 -c` and `boost-ipc001 -s &`, respectively
  * Run the server: `sudo -u www-data ./boost-ipc001 -s &`
    * Note that `www-data` is the default apache account name
