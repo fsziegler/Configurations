@@ -27,14 +27,28 @@ Once these installations are complete, you should be able to browse to your inst
  
 From: http://blog.netgusto.com/solving-web-file-permissions-problem-once-and-for-all/
 
-Assume that the developer user is `fred`, the web server user is `www-data` and the application is stored at `/var/www/app1`.
+Assume that the developer user is `fred`, the web server user is `www-data` and the application is stored at `/var/www/html/app1` (created by root).
  * Run as root `su`
  * `sudo apt-get update`
  * `sudo apt-get -y install bindfs`
- * `mkdir -p /home/devone/websites/app1`
+ * `mkdir -p /home/fred/websites/app1`
  * `sudo nano /etc/fstab`
-   * Append `bindfs#/var/www/app1 /home/devone/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
- * `mount /home/devone/websites/app1` (system will do this at boot time)
-If your system yells about force-user or force-group not being defined:
-	* replace force-user by owner
-	* replace force-group by group
+   * Append `bindfs#/var/www/html/app1 /home/fred/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
+ * `mount /home/fred/websites/app1` (system will do this at boot time)
+
+To have a PHP script run an executable that communicates with another executable on the server, such as the interprocess communication client (kicked off by the script) talking to the ipc server in https://github.com/fsziegler/cs-ipc:
+ * Assume the root password is `foo123`, and the client and server are run using `boost-ipc001 -c` and `boost-ipc001 -s &`, respectively
+ * run the server: `sudo -u www-data ./boost-ipc001 -s &`
+   * Note that `www-data` is the default apache account name
+ * run_client.php:
+```
+<?php // send_report.php
+   if (isset($_POST['url']))
+   {
+      $command = "echo 1234 | sudo -S ./boost-ipc001 -c > result.txt";
+      shell_exec($command);
+   }
+?>
+```
+   * The client mode program spawned by the PHP script by the apache server will communicate with the server moce program run from the command line.
+   * The client and server programs will NOT communicate if they are run by different user accounts
