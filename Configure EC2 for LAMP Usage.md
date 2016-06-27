@@ -37,18 +37,34 @@ Assume that the developer user is `fred`, the web server user is `www-data` and 
  * `mount /home/fred/websites/app1` (system will do this at boot time)
 
 To have a PHP script run an executable that communicates with another executable on the server, such as the interprocess communication client (kicked off by the script) talking to the ipc server in https://github.com/fsziegler/cs-ipc:
- * Assume the root password is `foo123`, and the client and server are run using `boost-ipc001 -c` and `boost-ipc001 -s &`, respectively
- * run the server: `sudo -u www-data ./boost-ipc001 -s &`
+ * Assume that the client and server are run using `boost-ipc001 -c` and `boost-ipc001 -s &`, respectively
+ * Run the server: `sudo -u www-data ./boost-ipc001 -s &`
    * Note that `www-data` is the default apache account name
- * run_client.php:
+ * Open index.html in a browser:
 ```
-<?php // send_report.php
-   if (isset($_POST['url']))
-   {
-      $command = "echo foo123 | sudo -S ./boost-ipc001 -c > result.txt";
-      shell_exec($command);
-   }
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+   </head>
+   <body>
+      <p align="center">
+         <a href="./run_client.php" class="button" align="center">Run IPC client!</a>
+      </p>
+   </body>
+</html>
+```
+ * Clicking on the "Run IPC client!" link calls run_client.php, resulting in the client sending a message to the server across process boundaries:
+```
+<?php // run_client.php
+   echo "First" . "<br>";
+   $command = "./boost-ipc001 -c > result0.txt";
+   $result = shell_exec($command);
+   echo "result = [" . $result . "]<br>";
+   echo "Done" . "<br>";
 ?>
 ```
    * The client mode program spawned by the PHP script by the apache server will communicate with the server moce program run from the command line.
-   * The client and server programs will NOT communicate if they are run by different user accounts
+   * The client and server programs will NOT communicate if they are run by different user accounts.
