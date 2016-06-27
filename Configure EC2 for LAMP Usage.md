@@ -25,4 +25,16 @@ _Detailed break-out of commands:_
 
 Once these installations are complete, you should be able to browse to your instance's IP address and see the "Apache2 Ubuntu Default Page". If you append '/phpmyadmin' to the IP address, you should see the "Welcome to phpMyAdmin" page. The user name is root, and the password is whatever you entered when you ran `setup_lamp.sh`.
  
- 
+From: http://blog.netgusto.com/solving-web-file-permissions-problem-once-and-for-all/
+
+Assume that the developer user is `fred`, the web server user is `www-data` and the application is stored at `/var/www/app1`.
+ * Run as root `su`
+ * `sudo apt-get update`
+ * `sudo apt-get -y install bindfs`
+ * `mkdir -p /home/devone/websites/app1`
+ * `sudo nano /etc/fstab`
+   * Append `bindfs#/var/www/app1 /home/devone/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
+ * `mount /home/devone/websites/app1` (system will do this at boot time)
+If your system yells about force-user or force-group not being defined:
+	* replace force-user by owner
+	* replace force-group by group
