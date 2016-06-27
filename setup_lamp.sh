@@ -40,3 +40,5 @@ sudo apt-get -y install php-gettext
 sudo apt-get -y install mcrypt
 sudo php5enmod mcrypt
 sudo /usr/sbin/apache2ctl restart
+# The following line enables apache to run scripts and programs in the sub/directories it is run in:
+# sudo chown www-data:www-data -R .
