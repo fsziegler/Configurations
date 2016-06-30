@@ -37,6 +37,12 @@ Assume that the developer user is `fred`, the web server user is `www-data` and 
    * Append `bindfs#/var/www/html/app1 /home/fred/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
  * `mount /home/fred/websites/app1` (system will do this at boot time)
 
+**Logging into an AWS EC2 Instance**
+ * `ssh -v -i "/home/path-to-key/key_name.pem" ubuntu@ecipaddress.compute-1.amazonaws.com`
+   * You should use "ubuntu@" before the EC2 address copied from the AWS Management console
+   * If you get permission denied on the key, then make sure its permissions are set for only root (`chmod 600` or `chmod 400`).
+   * If you still can't log in (permission denied), you may have forgotten to prefix the instance IP with "ubunt@".
+
 **How to Make a Web Page Talk to Another Process on the Web Server**
 
 To have a PHP script run an executable that communicates with another executable on the server, such as an interprocess communication client (kicked off by the script) talking to an ipc server (code from https://github.com/fsziegler/boost-ipc001):
