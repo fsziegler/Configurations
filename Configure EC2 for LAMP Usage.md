@@ -28,14 +28,14 @@ Once these installations are complete, you should be able to browse to your inst
 
 From: http://blog.netgusto.com/solving-web-file-permissions-problem-once-and-for-all/
 
-Assume that the developer user is `fred`, the web server user is `www-data` and the application is stored at `/var/www/html/app1` (created by root).
+Assume that the developer user is `ubuntu`, the web server user is `www-data` and the application is stored at `/var/www/html/app1` (created by root).
  * Run as root `su`
  * `sudo apt-get update`
  * `sudo apt-get -y install bindfs`
- * `mkdir -p /home/fred/websites/app1`
+ * `mkdir -p /home/ubuntu/websites/app1`
  * `sudo nano /etc/fstab`
-   * Append `bindfs#/var/www/html/app1 /home/fred/websites/app1 fuse force-user=fred,force-group=fred,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
- * `mount /home/fred/websites/app1` (system will do this at boot time)
+   * Append `bindfs#/var/www/html/app1 /home/ubuntu/websites/app1 fuse force-user=ubuntu,force-group=ubuntu,create-for-user=www-data,create-for-group=www-data,create-with-perms=0770,chgrp-ignore,chown-ignore,chmod-ignore 0 0` & save & close
+ * `mount /home/ubuntu/websites/app1` (system will do this at boot time)
 
 **Logging into an AWS EC2 Instance**
  * `ssh -v -i "/home/path-to-key/key_name.pem" ubuntu@ecipaddress.compute-1.amazonaws.com`
