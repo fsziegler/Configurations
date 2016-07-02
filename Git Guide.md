@@ -6,21 +6,21 @@
 
 ## Git Terminology
 
-Git's terminology differs from that of other version control systems, so it is a good idea to start with the terminology.
+Git's terminology differs from that of other version control systems, so it is a good idea to start with its terminology.
 ### Nouns
  * Files on disk
    * **Workspace:** the set of actual files and directories in and under the top git directory.
    * *Workspace File Set:*  a set, or subset, of the files and directories in a **workspace**.
  * Databases
-   * **Datastore:** any mechanism capable of storing one or more versions of a **workspace file set**.
-   * **Stash:** a local **datastore** into which one **workspace file set** version can be moved and removed. Modelled as a stack.
+   * **Datastore:** any Git mechanism capable of storing one or more versions of a **workspace file set**.
+   * **Stash:** a "lightweight" local **datastore** into which **workspace file set** versions can be pushed and popped. Modelled as a stack with no memory other than its contents. A **stash** and its **index** are inextricably linked.
    * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to its **local repo**. An **index** can only interact with other **repos** through its **local repo**.
    * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed. A **repo** may interact with multiple other **repos**.
    * **Local Repo:** a local **repo** into which all the **workspace file set** versions in its **index** may be moved. A local **repo** only interacts with one **index**.
    * **Remote Repo:** a networked **repo** with which a local **repo** may interact.
  * File sets
    * **Commit:** a **workspace file set** version that has been added to a **repo**.
-   * **Branch:** a series of **commits** in a **repo**.
+   * **Branch:** a contiguous series of **commits** in a **repo**.
    * **Master Branch:** the original series of **commits** in a **repo**. Another branch will diverge from the **master branch** starting at a given **commit**.
  * Objects
    * **Blob:** the contents of any single file (text, binary, etc.).
@@ -32,19 +32,19 @@ Git's terminology differs from that of other version control systems, so it is a
 
 All verbs are used with the syntax `git [verb] [options]` from the command line. The directory from which a command is issued is used by git to determine the **workspace file set** to operate on; the root local **repo** directory is normally used.
  * Initialization
-   * **init:** initializes a **local repo** in the current directory.
-   * **clone:** clones a **remote repo** into the current directory.
+   * **init:** Initializes a **local repo** in the current directory.
+   * **clone:** Clones a **remote repo** into the current directory.
  * Manipulation
-   * **add:** adds a **workspace file set** to the **index**.
-   * **stash:** moves changed files in the **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
-   * **commit:** moves the **index** into the **local repo**, leaving an empty **index**.
-   * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost unless **add** or **stash** was called before **checkout**.
-   * **Push** Updates the **remote repo** from the **local repo**.
-   * **Pull** Updates the **local repo**,  **index**, and **workspace file set** from the **remote repo**.
-   * **Fetch** Updates the **local repo** from the **remote repo**.
+   * **add:** Adds a **workspace file set** to the **index**.
+   * **stash:** Moves changed files in a **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
+   * **commit:** Moves the **index** into the **local repo**, leaving an empty **index**.
+   * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost (unless **add** or **stash** was called before **checkout**).
+   * **Push:** Updates the **remote repo** from the **local repo**.
+   * **Pull:** Updates the **local repo**,  **index**, and **workspace file set** from the **remote repo**.
+   * **Fetch:** Updates the **local repo** from the **remote repo** (but not the **index** nor the **workspace file set**).
    * Branching
-     * **Merge** Attempts to merges another **branch** into the current **branch**, giving alerts to conflicts that it cannot resolve.
-     * **Rebase** Attempts to change the root **commit** of one **branch** off of another **branch** to a more recent one off of the latter **branch**, applying all of the subsequent **commits** from the former **branch** to this new root.
+     * **Merge:** Attempts to merges another **branch** into the current **branch**, giving alerts to conflicts that it cannot resolve.
+     * **Rebase:** Attempts to change the root **commit** of one **branch** off of another **branch** to a more recent one off of the latter **branch**, applying all of the subsequent **commits** from the former **branch** to this new root.
  * Information
    * **diff:** Shows changes between the **workspace file set** and the **index** or a **tree**, changes between the **index** and a **tree**, changes between two **trees**, changes between two **blob** objects, or changes between two files on disk.
    * **status:** Shows differences among the **workspace file set**, the **index**, and the **local repo**. Essentially shows what would be affected by calls to **add** and **commit**.
@@ -56,6 +56,8 @@ All verbs are used with the syntax `git [verb] [options]` from the command line.
 ![](http://blog.osteele.com/images/2008/git-workflow.png)
 
 ## Initialization
+
+See "https://github.com/fsziegler/Configurations/blob/master/Set_up_SSH_Key.md" for instructions on setting up an SSH key so you don't need a username and password for git operations.
 * Initialize the current directory as a git repo
 * Clone an existing git repo into the current directory
 
@@ -65,6 +67,15 @@ There are five possible file states
 ###1. Untracked Files
 * `git add [filename]` adds *filename* to the repo index
 * `git add .` adds changes in all files to, removes deleted files from, and adds new files to the repo index from the workspace.
+* [Instructions for pushing a new repo to GitHub](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+  * `git init`
+  * `git add .`
+  * `git commit -m "First commit"`
+  * Go to GitHub, create a new repo with NO files (e.g., README, license, .gitignore, etc.)
+  * Copy this URL to the clipboard
+  * `git git remote add origin [remote repository URL]`
+  * `git git remote -v` verifies the new remote URL
+  * `git git push origin master`
 
 ###2. Unmodified Files
 
@@ -80,9 +91,9 @@ Git records each time modified files are added to the index
  * `git add -n` does not change the repo index, shows what would happen if `git add .` is run.
 
  * `git diff` does not change the repo index, shows what would happen if `git add .` is run.
- * `git diff` tells what has changed since the last checkpoint.
- * `git diff head` shows what’s changed since the last commit.
- * `git checkout .` reverts to the last checkpoint.
+ * `git diff` tells what has changed since the last checkpoint in the index.
+ * `git diff head` shows what’s changed since the last commit in the repo.
+ * `git checkout .` reverts to the last checkpoint in the index.
  * `git checkout head .` reverts to the last commit.
  * `git stash` operates on the changes since the last commit.
  * `git checkout -m -b` operates on the changes since the last commit.
