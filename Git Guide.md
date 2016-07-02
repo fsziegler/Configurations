@@ -6,33 +6,46 @@
 
 ## Git Terminology
 ### Nouns
- * **Workspace:** the set of actual files and directories in and under the top git directory.
- * *Workspace File Set:*  a set, or subset, of the files and directories in a **workspace**.
- * **Datastore:** any mechanism capable of storing one or more versions of a **workspace file set**.
- * **Stash:** a local **datastore** into which one **workspace file set** version can be moved and removed. Modelled as a stack.
- * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to a **repo**.
- * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed.
- * **Local Repo:** a local **repo** into which all the **workspace file set** versions in an **index** may be moved.
- * **Remote Repo:** a networked **repo** with which a local **repo** may be synched.
- * **Commit:** a **workspace file set** version that has been added to a **repo**.
- * **Branch:** a series of **commits** in a **repo**.
- * **Master Branch:** the original series of **commits** in a **repo**. Another branch will diverge from the **master branch** starting at a given **commit**.
- * **Blob:** the contents of any single file (text, binary, etc.).
- * **Tree:** any directory structure starting at a given directory.
- * **Tag:** a text string that points to a **commit**.
- * **Object:** any git **blob**, **tree**, **commit**, or **tag**.
+ * Files on disk
+   * **Workspace:** the set of actual files and directories in and under the top git directory.
+   * *Workspace File Set:*  a set, or subset, of the files and directories in a **workspace**.
+ * Databases
+   * **Datastore:** any mechanism capable of storing one or more versions of a **workspace file set**.
+   * **Stash:** a local **datastore** into which one **workspace file set** version can be moved and removed. Modelled as a stack.
+   * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to a **repo**.
+   * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed.
+   * **Local Repo:** a local **repo** into which all the **workspace file set** versions in an **index** may be moved.
+   * **Remote Repo:** a networked **repo** with which a local **repo** may be synched.
+ * File sets
+   * **Commit:** a **workspace file set** version that has been added to a **repo**.
+   * **Branch:** a series of **commits** in a **repo**.
+   * **Master Branch:** the original series of **commits** in a **repo**. Another branch will diverge from the **master branch** starting at a given **commit**.
+ * Objects
+   * **Blob:** the contents of any single file (text, binary, etc.).
+   * **Tree:** any directory structure starting at a given directory.
+   * **Tag:** a text string that points to a **commit**.
+   * **Object:** any git **blob**, **tree**, **commit**, or **tag**.
 
 ### Verbs
 
 All verbs are used with the syntax `git [verb] [options]` from the command line. The directory from which a command is issued is used by git to determine the **workspace file set** to operate on; the root local **repo** directory is normally used.
- * **init:** initializes a **local repo** in the current directory.
- * **clone:** clones a **remote repo** into the current directory.
- * **add:** adds a **workspace file set** to the **index**.
- * **commit:** moves the **index** into the **local repo**, leaving an empty **index**.
- * **stash:** moves changed files in the **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
- * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost unless **add** or **stash** was called before **checkout**.
- * **diff:** Shows changes between the **workspace file set** and the **index** or a **tree**, changes between the **index** and a **tree**, changes between two **trees**, changes between two **blob** objects, or changes between two files on disk.
- * **status:** Shows differences among the **workspace file set**, the **index**, and the **local repo**. Essentially shows what would be affected by calls to **add** and **commit**.
+ * Initialization
+   * **init:** initializes a **local repo** in the current directory.
+   * **clone:** clones a **remote repo** into the current directory.
+ * Manipulation
+   * **add:** adds a **workspace file set** to the **index**.
+   * **stash:** moves changed files in the **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
+   * **commit:** moves the **index** into the **local repo**, leaving an empty **index**.
+   * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost unless **add** or **stash** was called before **checkout**.
+   * **Push** Updates the **remote repo** from the **local repo**.
+   * **Pull** Updates the **local repo**,  **index**, and **workspace file set** from the **remote repo**.
+   * **Fetch** Updates the **local repo** from the **remote repo**.
+   * Branching
+     * **Merge** Attempts to merges another **branch** into the current **branch**, giving alerts to conflicts that it cannot resolve.
+     * **Rebase** Attempts to change the root **commit** of one **branch** off of another **branch** to a more recent one off of the latter **branch**, applying all of the subsequent **commits** from the former **branch** to this new root.
+ * Information
+   * **diff:** Shows changes between the **workspace file set** and the **index** or a **tree**, changes between the **index** and a **tree**, changes between two **trees**, changes between two **blob** objects, or changes between two files on disk.
+   * **status:** Shows differences among the **workspace file set**, the **index**, and the **local repo**. Essentially shows what would be affected by calls to **add** and **commit**.
 
 [Good tutorial on Git indexes](http://blog.osteele.com/posts/2008/05/my-git-workflow/)
 "Added: This way I can checkpoint every few minutes. It’s a very cheap operation, and I don’t have to spend time cleaning up the checkpoints later. “git diff” tells me what I’ve changed since the last checkpoint; “git diff head” shows what’s changed since the last commit. “git checkout .” reverts to the last checkpoint; “git checkout head .” reverts to the last commit. And “git stash” and “git checkout -m -b” operate on the changes since the last commit, which is what I want."
