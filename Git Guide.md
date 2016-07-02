@@ -5,6 +5,8 @@
 3. [Git Commands](#git-commands)
 
 ## Git Terminology
+
+Git's terminology differs from that of other version control systems, so it is a good idea to start with the terminology.
 ### Nouns
  * Files on disk
    * **Workspace:** the set of actual files and directories in and under the top git directory.
@@ -12,10 +14,10 @@
  * Databases
    * **Datastore:** any mechanism capable of storing one or more versions of a **workspace file set**.
    * **Stash:** a local **datastore** into which one **workspace file set** version can be moved and removed. Modelled as a stack.
-   * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to a **repo**.
-   * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed.
-   * **Local Repo:** a local **repo** into which all the **workspace file set** versions in an **index** may be moved.
-   * **Remote Repo:** a networked **repo** with which a local **repo** may be synched.
+   * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to its **local repo**. An **index** can only interact with other **repos** through its **local repo**.
+   * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed. A **repo** may interact with multiple other **repos**.
+   * **Local Repo:** a local **repo** into which all the **workspace file set** versions in its **index** may be moved. A local **repo** only interacts with one **index**.
+   * **Remote Repo:** a networked **repo** with which a local **repo** may interact.
  * File sets
    * **Commit:** a **workspace file set** version that has been added to a **repo**.
    * **Branch:** a series of **commits** in a **repo**.
