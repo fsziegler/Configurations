@@ -1,10 +1,44 @@
 # Git Guide
-1. [Initialization](#initialization)
+1. [Git Terminology](#git-terminology)
+2. [Initialization](#initialization)
 2. [Modifying Files](#modifying-files)
 3. [Git Commands](#git-commands)
 
+## Git Terminology
+### Nouns
+ * **Workspace:** the set of actual files and directories in and under the top git directory.
+ * *Workspace File Set:*  a set, or subset, of the files and directories in a **workspace**.
+ * **Datastore:** any mechanism capable of storing one or more versions of a **workspace file set**.
+ * **Stash:** a local **datastore** into which one **workspace file set** version can be moved and removed. Modelled as a stack.
+ * **Index:** a "lightweight" local **datastore** into which multiple **workspace file set** versions can be added and removed. Retains memory only of versions added, not of versions removed nor comitted to a **repo**.
+ * **Repository ("Repo"):** a **datastore** into which multiple **workspace file set** versions may be stored. Retains memory of all versions added and removed.
+ * **Local Repo:** a local **repo** into which all the **workspace file set** versions in an **index** may be moved.
+ * **Remote Repo:** a networked **repo** with which a local **repo** may be synched.
+ * **Commit:** a **workspace file set** version that has been added to a **repo**.
+ * **Branch:** a series of **commits** in a **repo**.
+ * **Master Branch:** the original series of **commits** in a **repo**. Another branch will diverge from the **master branch** starting at a given **commit**.
+ * **Blob:** the contents of any single file (text, binary, etc.).
+ * **Tree:** any directory structure starting at a given directory.
+ * **Tag:** a text string that points to a **commit**.
+ * **Object:** any git **blob**, **tree**, **commit**, or **tag**.
+
+### Verbs
+
+All verbs are used with the syntax `git [verb] [options]` from the command line. The directory from which a command is issued is used by git to determine the **workspace file set** to operate on; the root local **repo** directory is normally used.
+ * **init:** initializes a **local repo** in the current directory.
+ * **clone:** clones a **remote repo** into the current directory.
+ * **add:** adds a **workspace file set** to the **index**.
+ * **commit:** moves the **index** into the **local repo**, leaving an empty **index**.
+ * **stash:** moves changed files in the **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
+ * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost unless **add** or **stash** was called before **checkout**.
+ * **diff:** Shows changes between the **workspace file set** and the **index** or a **tree**, changes between the **index** and a **tree**, changes between two **trees**, changes between two **blob** objects, or changes between two files on disk.
+ * **status:** Shows differences among the **workspace file set**, the **index**, and the **local repo**. Essentially shows what would be affected by calls to **add** and **commit**.
+
 [Good tutorial on Git indexes](http://blog.osteele.com/posts/2008/05/my-git-workflow/)
 "Added: This way I can checkpoint every few minutes. It’s a very cheap operation, and I don’t have to spend time cleaning up the checkpoints later. “git diff” tells me what I’ve changed since the last checkpoint; “git diff head” shows what’s changed since the last commit. “git checkout .” reverts to the last checkpoint; “git checkout head .” reverts to the last commit. And “git stash” and “git checkout -m -b” operate on the changes since the last commit, which is what I want."
+
+![Git Data Transport Commands](http://blog.osteele.com/images/2008/git-transport.png)
+![](http://blog.osteele.com/images/2008/git-workflow.png)
 
 ## Initialization
 * Initialize the current directory as a git repo
@@ -15,15 +49,28 @@
 There are five possible file states
 ###1. Untracked Files
 * `git add [filename]` adds *filename* to the repo index
-* `git add .` adds all new files to the repo index
+* `git add .` adds changes in all files to, removes deleted files from, and adds new files to the repo index from the workspace.
 
 ###2. Unmodified Files
 
-Unmodified files need to action.
+Unmodified files need no action.
 
 ###3. Modified Files
 
+Git records each time modified files are added to the index
+ * `git add [filename]` adds changes in *filename* to the repo index
+ * `git add -u` adds changes in all files to and removes deleted files from the repo index, but does not add new files from the workspace.
+ * `git add -A` adds changes in all files to, removes deleted files from, and adds new files to the repo index from the workspace.
+ * `git add -N` does not change the repo index, but `git diff` will now show what the status would be after `git add .` is run.
+ * `git add -n` does not change the repo index, shows what would happen if `git add .` is run.
 
+ * `git diff` does not change the repo index, shows what would happen if `git add .` is run.
+ * `git diff` tells what has changed since the last checkpoint.
+ * `git diff head` shows what’s changed since the last commit.
+ * `git checkout .` reverts to the last checkpoint.
+ * `git checkout head .` reverts to the last commit.
+ * `git stash` operates on the changes since the last commit.
+ * `git checkout -m -b` operates on the changes since the last commit.
 
 ###4. Staged Files
 
