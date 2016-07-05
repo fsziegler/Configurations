@@ -34,17 +34,18 @@ All verbs are used with the syntax `git [verb] [options]` from the command line.
  * Initialization
    * **init:** Initializes a **local repo** in the current directory.
    * **clone:** Clones a **remote repo** into the current directory.
+ * Branching
+   * **branch:** Creates a new branch, or lists existing ones, or deletes a branch.
+   * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost (unless **add** or **stash** was called before **checkout**).
+   * **merge:** Attempts to merge another **branch** into the current **branch**, giving alerts to conflicts that it cannot resolve.
+   * **fetch:** Updates the **local repo** from the **remote repo** (but not the **index** nor the **workspace file set**).
+   * **rebase:** Attempts to change the root **commit** of one **branch** off of another **branch** to a more recent one off of the latter **branch**, applying all of the subsequent **commits** from the former **branch** to this new root.
  * Manipulation
    * **add:** Adds a **workspace file set** to the **index**.
    * **stash:** Moves changed files in a **workspace file set** to a new position in the **stash**, placing this **workspace file set** in synch with their latest version in the **index**.
    * **commit:** Moves the **index** into the **local repo**, leaving an empty **index**.
-   * **checkout:** Synchs the **index** and **workspace file set** to a **branch**. Any differences between the initial **workspace file set** and the branch are lost (unless **add** or **stash** was called before **checkout**).
    * **push:** Updates the **remote repo** from the **local repo**.
    * **pull:** Updates the **local repo**,  **index**, and **workspace file set** from the **remote repo**.
-   * **fetch:** Updates the **local repo** from the **remote repo** (but not the **index** nor the **workspace file set**).
-   * Branching
-     * **merge:** Attempts to merges another **branch** into the current **branch**, giving alerts to conflicts that it cannot resolve.
-     * **rebase:** Attempts to change the root **commit** of one **branch** off of another **branch** to a more recent one off of the latter **branch**, applying all of the subsequent **commits** from the former **branch** to this new root.
  * Information
    * **diff:** Shows changes between the **workspace file set** and the **index** or a **tree**, changes between the **index** and a **tree**, changes between two **trees**, changes between two **blob** objects, or changes between two files on disk.
    * **status:** Shows differences among the **workspace file set**, the **index**, and the **local repo**. Essentially shows what would be affected by calls to **add** and **commit**.
