@@ -52,7 +52,7 @@ If running Kubuntu, the error tooltips in the editor may appear black on black. 
 
 (Fix copied from http://askubuntu.com/questions/45001/how-to-fix-black-tooltips-in-eclipse)
 
-##To build with C++11 properly in EclipseCDT Mars
+##To build with C++11 properly in EclipseCDT Mars (replace `-std=c++11` with `-std=gnu++11` for MinGW)
 
 Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Compiler:Miscellaneous:Other flags, add `-std=c++11`
 
