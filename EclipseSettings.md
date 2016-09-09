@@ -1,6 +1,6 @@
 #Eclipse Settings
 
-The following is a list of settings I like to change in Eclipse. Unless otherwise noted, settings are modified from Windows:Preferences
+The following is a list of settings I like to change in Eclipse. These settings are contained in the file `EclipseConfig.epf` and can be imported using File:Import:General:Preferences:Next >:Browse:`EclipseConfig.epf`. Unless otherwise noted, settings are modified from Windows:Preferences
 - General:Editors:Size of recently opened files -> 15
 - General:Editors:Text Editors
   - Displayed tab width -> 3
