@@ -1,3 +1,4 @@
+// TODO Needs unit tests
 TODO ${file_base}(const ${file_base}& rhs);
 TODO ${file_base}& operator=(const ${file_base}& rhs);
 TODO bool& operator==(const ${file_base}& rhs) const;
