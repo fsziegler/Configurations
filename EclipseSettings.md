@@ -55,6 +55,11 @@ If running Kubuntu, the error tooltips in the editor may appear black on black. 
 
 (Fix copied from http://askubuntu.com/questions/45001/how-to-fix-black-tooltips-in-eclipse)
 
+##To link Boost unit testing in EclipseCDT Mars
+Under Project Properties->C/C++ General:Paths and Symbols:Libraries:Configuration:[All Configurations] flags
+- Add `boost_unit_test_framework`
+- Check "Add to all languages"
+
 ##To build with C++11 properly in EclipseCDT Mars (replace `-std=c++11` with `-std=gnu++11` for MinGW)
 
 Under Project Properties->C/C++ Build:Settings:Tool Settings:GCC C++ Compiler:Miscellaneous:Other flags, add `-std=c++11`
