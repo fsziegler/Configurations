@@ -16,6 +16,9 @@ The following is a list of settings I like to change in Eclipse. These settings 
 - C/C++:Code Style: 
   - Code Templates:Comments:Files:Pattern
     - [Add boilerplate copyright here](https://raw.githubusercontent.com/fsziegler/Configurations/master/EclipseCopyright.txt)
+    - [Add boilerplate TODOs here](https://raw.githubusercontent.com/fsziegler/Configurations/master/ToDo.txt)
+  - Code Templates:Comments:Code:Class body
+    - Insert `// The class ${enclosing_type} ..` on the line before "${declarations}"
   - Formatter:
     - Set to BSD/Allman, and edit:
       - Rename to "BSD/Allman [Fred]"

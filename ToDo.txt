@@ -1,0 +1,13 @@
+TODO ${file_base}(const ${file_base}& rhs);
+TODO ${file_base}& operator=(const ${file_base}& rhs);
+TODO bool& operator==(const ${file_base}& rhs) const;
+TODO bool& operator!=(const ${file_base}& rhs) const;
+TODO private:
+TODO void SetEqual(const ${file_base}& rhs);
+TODO bool IsEqual(const ${file_base}& rhs) const;
+
+TODO #include <boost/test/unit_test.hpp>
+TODO #include <iostream>
+TODO using namespace std;
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_constructors_test ){cout << "Running ${file_base}_constructors_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+
