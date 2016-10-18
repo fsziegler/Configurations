@@ -3,9 +3,9 @@ TODO ${file_base}(const ${file_base}& rhs);
 TODO ${file_base}& operator=(const ${file_base}& rhs);
 TODO bool& operator==(const ${file_base}& rhs) const;
 TODO bool& operator!=(const ${file_base}& rhs) const;
-TODO private:
-TODO void SetEqual(const ${file_base}& rhs);
-TODO bool IsEqual(const ${file_base}& rhs) const;
+TODO protected:
+TODO virtual void SetEqual(const ${file_base}& rhs);
+TODO virtual bool IsEqual(const ${file_base}& rhs) const;
 
 TODO #include <boost/test/unit_test.hpp>
 TODO #include <iostream>
