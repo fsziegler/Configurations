@@ -1,8 +1,14 @@
 // TODO Needs unit tests
+// CONSTRUCTOR/DESTRUCTOR/ASSIGNMENT&IN/EQUALITY OPERATORS
 TODO ${file_base}(const ${file_base}& rhs);
 TODO ${file_base}& operator=(const ${file_base}& rhs);
 TODO bool& operator==(const ${file_base}& rhs) const;
 TODO bool& operator!=(const ${file_base}& rhs) const;
+// ACCESSORS      Get & set data members
+// FUNCTIONS      Return useful information not tied to the instance
+// OPERATIONS     Operate on the instance - modifies data member(s)
+// COMPUTATIONS   Return calculated result
+// INHERITED      Implement a base class method
 TODO protected:
 TODO virtual void SetEqual(const ${file_base}& rhs);
 TODO virtual bool IsEqual(const ${file_base}& rhs) const;
