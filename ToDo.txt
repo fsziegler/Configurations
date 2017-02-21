@@ -17,4 +17,9 @@ TODO #include <boost/test/unit_test.hpp>
 TODO #include <iostream>
 TODO using namespace std;
 TODO BOOST_AUTO_TEST_CASE( ${file_base}_constructors_test ){cout << "Running ${file_base}_constructors_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_accessors_test ){cout << "Running ${file_base}_accessors_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_functions_test ){cout << "Running ${file_base}_functions_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_operations_test ){cout << "Running ${file_base}_operations_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_computations_test ){cout << "Running ${file_base}_computations_test" << endl;BOOST_CHECK_EQUAL(3,3);}
+TODO BOOST_AUTO_TEST_CASE( ${file_base}_inherited_test ){cout << "Running ${file_base}_inherited_test" << endl;BOOST_CHECK_EQUAL(3,3);}
 
